@@ -65,6 +65,8 @@ def solve2(G):
                 break
         if canRemove:
             print("can remove node!")
+            if len(T.nodes)==1:
+                break
             T.remove_node(nodeToRemove)
             removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
             setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
@@ -72,7 +74,6 @@ def solve2(G):
             for i in setDiff:
                 node2 = list(T.edges(i))[0][1]
                 q.put((-T[i][node2]['weight'],i))
-
     return T
 
 
@@ -87,5 +88,6 @@ if __name__ == '__main__':
     G = read_input_file(path)
     T = solve2(G)
     assert is_valid_network(G, T)
-    print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
     write_output_file(T, 'out/' + path.split('.')[0].split('/')[1] + '.out')
+    print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
+

@@ -21,9 +21,27 @@
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/.small-1-BEST.out.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/test.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-1-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-1.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-1.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-10-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-10.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-10.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-100-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-100.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-100.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-101-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-101.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-101.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-102-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-103-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-103.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-103.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-2-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-200-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-200.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-200.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-201-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-201.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-201.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-202-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-202.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-202.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-203-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-204-BEST.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/small-204.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/small-204.out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

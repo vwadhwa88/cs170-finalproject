@@ -22,7 +22,7 @@ def solve(G):
     all_connected_subgraphs = []
 
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
-    for nb_nodes in range(2, G.number_of_nodes() + 1):
+    for nb_nodes in range(1, G.number_of_nodes() + 1):
         for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
             print("check SG")
             if nx.algorithms.tree.recognition.is_tree(SG) and nx.algorithms.dominating.is_dominating_set(G, SG.nodes):

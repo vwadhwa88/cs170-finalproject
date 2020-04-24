@@ -7,6 +7,7 @@ import sys
 import operator
 from collections import OrderedDict,deque
 from queue import PriorityQueue
+from networkx.algorithms import approximation
 
 #brute force
 def solve(G):
@@ -81,6 +82,12 @@ def solve2(G):
     return T
 def solve3(G):
     # Set all node weights to be the min weight of adjacent edges
+
+    for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G,1)):
+        if nx.algorithms.tree.recognition.is_tree(SG) and nx.algorithms.dominating.is_dominating_set(G,SG.nodes):
+            if SG.number_of_nodes()==1:
+                return SG
+
     for u in range(G.number_of_nodes()):
         adj_edges = [G.edges[u, v]['weight'] for v in list(G[u])]
         #G.nodes[u]['weight'] = sum(adj_edges)/len(adj_edges)
@@ -104,10 +111,31 @@ if __name__ == '__main__':
     if G.number_of_nodes() <= 30:
         print("brute force")
         T = solve(G)
+        assert is_valid_network(G, T)
+        write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+        if len(T)==1:
+            print("one vertex")
+        else:
+            print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
     else:
         print("MST + cut")
         T = solve2(G)
-    assert is_valid_network(G, T)
-    write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-    print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
+        T2 = solve3(G)
+        assert is_valid_network(G, T)
+        assert is_valid_network(G, T2)
+        if len(T)==1:
+            write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            print("one vertex")
+        elif len(T2)==1:
+            write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            print("one vertex")
+        else:
+            if average_pairwise_distance(T) <= average_pairwise_distance(T2):
+                write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+                print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
+            else:
+                write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+                print("Average  pairwise distance: {}".format(average_pairwise_distance(T2)))
+
+
 

@@ -20,15 +20,18 @@ def solve(G):
 
     # TODO: your code here!
     all_connected_subgraphs = []
-
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
     for nb_nodes in range(1, G.number_of_nodes() + 1):
         for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
-            print("check SG")
-            if nx.algorithms.tree.recognition.is_tree(SG) and nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
-                all_connected_subgraphs.append(SG)
-                print("adding subgraph")
-                print(SG.nodes)
+            if nx.algorithms.components.connected.is_connected(SG):
+                SG = nx.minimum_spanning_tree(SG)
+                if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
+                    all_connected_subgraphs.append(SG)
+                    print("adding subgraph")
+                    print(SG.nodes)
+                    if SG.number_of_nodes()==1:
+                        return SG
+
     print("finding best subgraph")
     minSG = None
     minAPD = float('inf')
@@ -39,6 +42,7 @@ def solve(G):
             minAPD = apd
     
     return minSG
+
 
 # MST approach, where we cut adjacent vertices after
 def solve2(G):
@@ -86,8 +90,14 @@ if __name__ == '__main__':
     path = sys.argv[1]
     print(path)
     G = read_input_file(path)
-    T = solve2(G)
+
+    if G.number_of_nodes() <= 30:
+        print("brute force")
+        T = solve(G)
+    else:
+        print("MST + cut")
+        T = solve2(G)
     assert is_valid_network(G, T)
-    write_output_file(T, 'out/' + path.split('.')[0].split('/')[1] + '.out')
+    write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
     print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
 

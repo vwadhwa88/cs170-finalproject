@@ -79,7 +79,17 @@ def solve2(G):
                 node2 = list(T.edges(i))[0][1]
                 q.put((-T[i][node2]['weight'],i))
     return T
-
+def solve3(G):
+    # Set all node weights to be the min weight of adjacent edges
+    for u in range(G.number_of_nodes()):
+        adj_edges = [G.edges[u, v]['weight'] for v in list(G[u])]
+        #G.nodes[u]['weight'] = sum(adj_edges)/len(adj_edges)
+        G.nodes[u]['weight'] = min(adj_edges)
+    # Obtain dominating set that minimizes node weights
+    ds = nx.algorithms.approximation.dominating_set.min_weighted_dominating_set(G, 'weight')
+    # Connect the set with steiner tree approx
+    T = nx.algorithms.approximation.steinertree.steiner_tree(G, ds)
+    return T
 
 # Here's an example of how to run your solver.
 

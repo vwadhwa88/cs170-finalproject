@@ -108,7 +108,7 @@ if __name__ == '__main__':
     print(path)
     G = read_input_file(path)
 
-    if G.number_of_nodes() <= 30:
+    if G.number_of_nodes() <= 28:
         print("brute force")
         T = solve(G)
         assert is_valid_network(G, T)

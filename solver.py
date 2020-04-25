@@ -26,7 +26,7 @@ def solve(G):
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
 
     for nb_nodes in range(1, G.number_of_nodes() + 1):
-        process(nb_nodes)
+        process(nb_nodes, G)
 
     print("time elapsed for all combinations: " + str(time.time() - start))
     print("finding best subgraph")
@@ -43,7 +43,7 @@ def solve(G):
     return minSG
 
 
-def process(nb_nodes):
+def process(nb_nodes, G):
     for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
         if nx.algorithms.components.connected.is_connected(SG):
             SG = nx.minimum_spanning_tree(SG)
@@ -91,6 +91,8 @@ def solve2(G):
                 node2 = list(T.edges(i))[0][1]
                 q.put((-T[i][node2]['weight'],i))
     return T
+
+
 def solve3(G):
     # Set all node weights to be the min weight of adjacent edges
 

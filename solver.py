@@ -10,9 +10,40 @@ from queue import PriorityQueue
 from networkx.algorithms import approximation
 import time
 import multiprocessing
+from multiprocessing import Pool, cpu_count
 
-#brute force
 def solve(G):
+    """
+    Args:
+        G: networkx.Graph
+    Returns:
+        T: networkx.Graph
+    """
+
+    # TODO: your code here!
+    all_connected_subgraphs = []
+    # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
+    for nb_nodes in range(1, G.number_of_nodes() + 1):
+        for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
+            if nx.algorithms.components.connected.is_connected(SG):
+                SG = nx.minimum_spanning_tree(SG)
+                if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
+                    all_connected_subgraphs.append(SG)
+                    if SG.number_of_nodes()==1:
+                        return SG
+
+    minSG = None
+    minAPD = float('inf')
+    for SG in all_connected_subgraphs:
+        apd = average_pairwise_distance(SG)
+        if apd < minAPD:
+            minSG = SG
+            minAPD = apd
+
+    return minSG
+
+
+def solveMP(G):
     """
     Args:
         G: networkx.Graph
@@ -24,37 +55,31 @@ def solve(G):
     # TODO: your code here!
 
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
+    num_cores = multiprocessing.cpu_count()
+    with Pool(num_cores) as p:
+        result = p.starmap(process, zip(itertools.repeat(G, G.number_of_nodes()), range(1, G.number_of_nodes() + 1)))
 
-    for nb_nodes in range(1, G.number_of_nodes() + 1):
-        process(nb_nodes, G)
-
-    print("time elapsed for all combinations: " + str(time.time() - start))
-    print("finding best subgraph")
+    #print("finding best subgraph")
     minSG = None
     minAPD = float('inf')
-    for SG in all_connected_subgraphs:
-        apd = average_pairwise_distance(SG)
-        if apd < minAPD:
-            minSG = SG
-            minAPD = apd
-
-    print("total time taken: " + str(time.time()-start))
-    
+    for lst in result:
+        for SG in lst:
+            apd = average_pairwise_distance(SG)
+            if apd < minAPD:
+                minSG = SG
+                minAPD = apd
     return minSG
 
-
-def process(nb_nodes, G):
+def process(G, nb_nodes):
+    connected_subgraphs = []
     for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
         if nx.algorithms.components.connected.is_connected(SG):
             SG = nx.minimum_spanning_tree(SG)
             if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
-                all_connected_subgraphs.append(SG)
-                print("adding subgraph")
-                print(SG.nodes)
+                connected_subgraphs.append(SG)
                 if SG.number_of_nodes() == 1:
-                    return SG
-    print("time elapsed for G choose " + str(nb_nodes) + ": " + str(time.time() - start))
-
+                    return [SG]
+    return connected_subgraphs
 
 # MST approach, where we cut adjacent vertices after
 def solve2(G):
@@ -126,13 +151,20 @@ if __name__ == '__main__':
         print("brute force")
         all_connected_subgraphs = []
         start = time.time()
+        time1 = time.time()
         T = solve(G)
+        time2 = time.time()
+        T1 = solveMP(G)
+        time3 = time.time()
         assert is_valid_network(G, T)
         write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
         if len(T)==1:
             print("one vertex")
         else:
-            print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
+            print("Average pairwise distance: {}".format(average_pairwise_distance(T)))
+            print(time2 - time1)
+            print("Average pairwise distance: {}".format(average_pairwise_distance(T1)))
+            print(time3 - time2)
     else:
         print("MST + cut")
         T = solve2(G)
@@ -148,10 +180,10 @@ if __name__ == '__main__':
         else:
             if average_pairwise_distance(T) <= average_pairwise_distance(T2):
                 write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                print("Average  pairwise distance: {}".format(average_pairwise_distance(T)))
+                print("Average pairwise distance: {}".format(average_pairwise_distance(T)))
             else:
                 write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                print("Average  pairwise distance: {}".format(average_pairwise_distance(T2)))
+                print("Average pairwise distance: {}".format(average_pairwise_distance(T2)))
 
 
 

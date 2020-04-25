@@ -143,7 +143,7 @@ if __name__ == '__main__':
     G = read_input_file(path)
 
 
-    if G.number_of_nodes() == 22:
+    if G.number_of_nodes() == 23:
         print("multiprocessing brute force")
         all_connected_subgraphs = []
         start = time.time()
@@ -181,15 +181,15 @@ if __name__ == '__main__':
                     print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
                 else:
                     print("not better pairwise dist")
-                print("New pairwise distance: {}".format(average_pairwise_distance(T)))
+                print("New MST pairwise distance: {}".format(average_pairwise_distance(T)))
             else:
                 current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
-                if average_pairwise_distance(T) < average_pairwise_distance(current_T):
+                if average_pairwise_distance(T2) < average_pairwise_distance(current_T):
                     write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
                     print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
                 else:
                     print("not better pairwise dist")
-                print("New pairwise distance: {}".format(average_pairwise_distance(T2)))
+                print("New Steiner pairwise distance: {}".format(average_pairwise_distance(T2)))
 
 
 

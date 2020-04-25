@@ -55,11 +55,15 @@ def solveMP(G):
     """
 
     # TODO: your code here!
+    for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G,1)):
+        if nx.algorithms.tree.recognition.is_tree(SG) and nx.algorithms.dominating.is_dominating_set(G,SG.nodes):
+            if SG.number_of_nodes()==1:
+                return SG
 
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
     num_cores = multiprocessing.cpu_count()
     with Pool(num_cores) as p:
-        result = p.starmap(process, zip(itertools.repeat(G, G.number_of_nodes()), range(1, G.number_of_nodes() + 1)))
+        result = p.starmap(process, zip(itertools.repeat(G, G.number_of_nodes()), range(2, G.number_of_nodes() + 1)))
     s = time.time()
     SG_lst = []
     for i in result:
@@ -71,14 +75,12 @@ def solveMP(G):
 def process(G, nb_nodes):
     connected_subgraphs = []
     for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
-        if nx.algorithms.components.connected.is_connected(SG):
+        if nx.algorithms.components.connected.is_connected(SG) and nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
             SG = nx.minimum_spanning_tree(SG)
-            if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
-                connected_subgraphs.append((SG,average_pairwise_distance(SG)))
-                print("adding subgraph")
-                print(SG.nodes)
-                if SG.number_of_nodes() == 1:
-                    return [(SG,0)]
+            connected_subgraphs.append((SG,average_pairwise_distance(SG)))
+            #print("adding subgraph")
+            #print(SG.nodes)
+                
     return connected_subgraphs
 
 # MST approach, where we cut adjacent vertices after

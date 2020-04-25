@@ -9,6 +9,7 @@ from collections import OrderedDict,deque
 from queue import PriorityQueue
 from networkx.algorithms import approximation
 import time
+import multiprocessing
 
 #brute force
 def solve(G):
@@ -21,20 +22,12 @@ def solve(G):
     """
 
     # TODO: your code here!
-    all_connected_subgraphs = []
+
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
-    start = time.time()
+
     for nb_nodes in range(1, G.number_of_nodes() + 1):
-        for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
-            if nx.algorithms.components.connected.is_connected(SG):
-                SG = nx.minimum_spanning_tree(SG)
-                if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
-                    all_connected_subgraphs.append(SG)
-                    print("adding subgraph")
-                    print(SG.nodes)
-                    if SG.number_of_nodes()==1:
-                        return SG
-        print("time elapsed for G choose " + str(nb_nodes) + ": " + str(time.time()-start))
+        process(nb_nodes)
+
     print("time elapsed for all combinations: " + str(time.time() - start))
     print("finding best subgraph")
     minSG = None
@@ -48,6 +41,19 @@ def solve(G):
     print("total time taken: " + str(time.time()-start))
     
     return minSG
+
+
+def process(nb_nodes):
+    for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
+        if nx.algorithms.components.connected.is_connected(SG):
+            SG = nx.minimum_spanning_tree(SG)
+            if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
+                all_connected_subgraphs.append(SG)
+                print("adding subgraph")
+                print(SG.nodes)
+                if SG.number_of_nodes() == 1:
+                    return SG
+    print("time elapsed for G choose " + str(nb_nodes) + ": " + str(time.time() - start))
 
 
 # MST approach, where we cut adjacent vertices after
@@ -113,8 +119,11 @@ if __name__ == '__main__':
     print(path)
     G = read_input_file(path)
 
+
     if G.number_of_nodes() <= 28:
         print("brute force")
+        all_connected_subgraphs = []
+        start = time.time()
         T = solve(G)
         assert is_valid_network(G, T)
         write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')

@@ -8,6 +8,7 @@ import operator
 from collections import OrderedDict,deque
 from queue import PriorityQueue
 from networkx.algorithms import approximation
+import time
 
 #brute force
 def solve(G):
@@ -22,6 +23,7 @@ def solve(G):
     # TODO: your code here!
     all_connected_subgraphs = []
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
+    start = time.time()
     for nb_nodes in range(1, G.number_of_nodes() + 1):
         for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
             if nx.algorithms.components.connected.is_connected(SG):
@@ -32,7 +34,8 @@ def solve(G):
                     print(SG.nodes)
                     if SG.number_of_nodes()==1:
                         return SG
-
+        print("time elapsed for G choose " + str(nb_nodes) + ": " + str(time.time()-start))
+    print("time elapsed for all combinations: " + str(time.time() - start))
     print("finding best subgraph")
     minSG = None
     minAPD = float('inf')
@@ -41,6 +44,8 @@ def solve(G):
         if apd < minAPD:
             minSG = SG
             minAPD = apd
+
+    print("total time taken: " + str(time.time()-start))
     
     return minSG
 

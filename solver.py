@@ -61,8 +61,10 @@ def solveMP(G):
     with Pool(num_cores) as p:
         result = p.starmap(process, zip(itertools.repeat(G, G.number_of_nodes()), range(1, G.number_of_nodes() + 1)))
     s = time.time()
-    print("finding best subgraph")
-    minSG = min(result,key=operator.itemgetter(1))[0]
+    SG_lst = []
+    for i in result:
+        SG_lst += i
+    minSG = min(SG_lst,key=operator.itemgetter(1))[0]
     print("finding best sg time: " + str(time.time()-s))
     return minSG
 

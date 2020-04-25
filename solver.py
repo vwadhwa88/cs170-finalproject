@@ -29,9 +29,11 @@ def solve(G):
                 SG = nx.minimum_spanning_tree(SG)
                 if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
                     all_connected_subgraphs.append(SG)
+                    print("adding subgraph")
+                    print(SG.nodes)
                     if SG.number_of_nodes()==1:
                         return SG
-
+    print("finding best subgraph")
     minSG = None
     minAPD = float('inf')
     for SG in all_connected_subgraphs:
@@ -58,16 +60,10 @@ def solveMP(G):
     num_cores = multiprocessing.cpu_count()
     with Pool(num_cores) as p:
         result = p.starmap(process, zip(itertools.repeat(G, G.number_of_nodes()), range(1, G.number_of_nodes() + 1)))
-
-    #print("finding best subgraph")
-    minSG = None
-    minAPD = float('inf')
-    for lst in result:
-        for SG in lst:
-            apd = average_pairwise_distance(SG)
-            if apd < minAPD:
-                minSG = SG
-                minAPD = apd
+    s = time.time()
+    print("finding best subgraph")
+    minSG = min(result,key=operator.itemgetter(1))[0]
+    print("finding best sg time: " + str(time.time()-s))
     return minSG
 
 def process(G, nb_nodes):
@@ -76,9 +72,11 @@ def process(G, nb_nodes):
         if nx.algorithms.components.connected.is_connected(SG):
             SG = nx.minimum_spanning_tree(SG)
             if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
-                connected_subgraphs.append(SG)
+                connected_subgraphs.append((SG,average_pairwise_distance(SG)))
+                print("adding subgraph")
+                print(SG.nodes)
                 if SG.number_of_nodes() == 1:
-                    return [SG]
+                    return [(SG,0)]
     return connected_subgraphs
 
 # MST approach, where we cut adjacent vertices after
@@ -148,23 +146,18 @@ if __name__ == '__main__':
 
 
     if G.number_of_nodes() <= 28:
-        print("brute force")
+        print("multiprocessing brute force")
         all_connected_subgraphs = []
         start = time.time()
-        time1 = time.time()
-        T = solve(G)
-        time2 = time.time()
-        T1 = solveMP(G)
-        time3 = time.time()
+        T = solveMP(G)
+        end = time.time()
         assert is_valid_network(G, T)
         write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
         if len(T)==1:
             print("one vertex")
         else:
-            print("Average pairwise distance: {}".format(average_pairwise_distance(T)))
-            print(time2 - time1)
-            print("Average pairwise distance: {}".format(average_pairwise_distance(T1)))
-            print(time3 - time2)
+            print("MP Average pairwise distance: {}".format(average_pairwise_distance(T)))
+            print("total time: " + str(end - start))
     else:
         print("MST + cut")
         T = solve2(G)

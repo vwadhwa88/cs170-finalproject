@@ -25,22 +25,16 @@ def solve(G):
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
     for nb_nodes in range(1, G.number_of_nodes() + 1):
         for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G, nb_nodes)):
-            if nx.algorithms.components.connected.is_connected(SG):
+            if nx.algorithms.components.connected.is_connected(SG) and nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
                 SG = nx.minimum_spanning_tree(SG)
-                if nx.algorithms.dominating.is_dominating_set(G, SG.nodes):
-                    all_connected_subgraphs.append(SG)
-                    print("adding subgraph")
-                    print(SG.nodes)
-                    if SG.number_of_nodes()==1:
-                        return SG
+                if SG.number_of_nodes()==1:
+                    return SG
+                all_connected_subgraphs.append((SG, average_pairwise_distance(SG)))
+                #print("adding subgraph")
+                #print(SG.nodes)
+
     print("finding best subgraph")
-    minSG = None
-    minAPD = float('inf')
-    for SG in all_connected_subgraphs:
-        apd = average_pairwise_distance(SG)
-        if apd < minAPD:
-            minSG = SG
-            minAPD = apd
+    minSG = min(all_connected_subgraphs,key=operator.itemgetter(1))[0]
 
     return minSG
 
@@ -149,11 +143,11 @@ if __name__ == '__main__':
     G = read_input_file(path)
 
 
-    if G.number_of_nodes() == 21:
+    if G.number_of_nodes() == 22:
         print("multiprocessing brute force")
         all_connected_subgraphs = []
         start = time.time()
-        T = solveMP(G)
+        T = solve(G)
         end = time.time()
         assert is_valid_network(G, T)
         current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)

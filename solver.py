@@ -61,7 +61,7 @@ def solveMP(G):
                 return SG
 
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
-    num_cores = multiprocessing.cpu_count()
+    num_cores = multiprocessing.cpu_count()//2
     with Pool(num_cores) as p:
         result = p.starmap(process, zip(itertools.repeat(G, G.number_of_nodes()), range(2, G.number_of_nodes() + 1)))
     s = time.time()
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     G = read_input_file(path)
 
 
-    if G.number_of_nodes() <= 28:
+    if G.number_of_nodes() == 21:
         print("multiprocessing brute force")
         all_connected_subgraphs = []
         start = time.time()
@@ -157,7 +157,7 @@ if __name__ == '__main__':
         end = time.time()
         assert is_valid_network(G, T)
         current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)
-        if average_pairwise_distance(T) < average_pairwise_distance(current_T):
+        if len(T)==1 or average_pairwise_distance(T) < average_pairwise_distance(current_T):
             write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
             print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
         else:

@@ -21,6 +21,96 @@
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputs/test.in" beforeDir="false" afterPath="$PROJECT_DIR$/inputs/test.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-10.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-10.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-100.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-100.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-101.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-101.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-102.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-102.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-112.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-112.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-113.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-113.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-115.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-115.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-132.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-132.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-133.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-133.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-134.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-134.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-136.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-136.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-139.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-139.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-14.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-14.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-140.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-140.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-143.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-143.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-147.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-147.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-149.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-149.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-154.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-154.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-155.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-155.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-157.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-157.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-161.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-161.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-162.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-162.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-163.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-163.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-169.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-169.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-17.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-17.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-170.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-170.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-178.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-178.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-182.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-182.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-183.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-183.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-184.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-184.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-185.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-185.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-188.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-188.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-19.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-19.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-191.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-191.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-192.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-192.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-193.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-193.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-195.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-195.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-201.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-201.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-205.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-205.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-21.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-21.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-212.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-212.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-214.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-214.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-22.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-22.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-223.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-223.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-226.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-226.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-228.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-228.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-23.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-23.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-230.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-230.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-234.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-234.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-235.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-235.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-237.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-237.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-238.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-238.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-24.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-24.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-242.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-242.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-250.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-250.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-256.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-256.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-26.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-26.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-265.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-265.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-266.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-266.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-270.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-270.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-274.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-274.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-276.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-276.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-279.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-279.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-28.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-28.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-285.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-285.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-288.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-288.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-293.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-293.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-298.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-298.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-30.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-30.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-34.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-34.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-39.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-39.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-40.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-40.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-43.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-43.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-49.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-49.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-5.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-5.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-57.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-57.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-65.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-65.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-66.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-66.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-7.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-7.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-70.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-70.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-76.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-76.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-8.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-8.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-81.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-81.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-83.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-83.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-88.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-88.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-89.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-89.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-92.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-92.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-97.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-97.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/test.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/test.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,75 +118,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/solver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="194" column="99" selection-start-line="194" selection-start-column="99" selection-end-line="194" selection-end-column="99" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parse.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="65" column="20" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/solver.py" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectId" id="1asHYtvqMKjCr3pYJkEw6cZjLpB" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="project-sp20-skeleton-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-sp20-skeleton-master" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,18 +130,6 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -131,43 +144,12 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="40" y="23" width="1194" height="809" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22591646" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -186,6 +168,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="686" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587573480228">
@@ -196,36 +179,5 @@
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="953" y="356" key="search.everywhere.popup/0.23.1792.1028@0.23.1792.1028" timestamp="1587766609706" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="65" column="20" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/solver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="194" column="99" selection-start-line="194" selection-start-column="99" selection-end-line="194" selection-end-column="99" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

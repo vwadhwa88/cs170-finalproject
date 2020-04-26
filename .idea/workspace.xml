@@ -20,17 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/large-114.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-114.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/large-116.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-116.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/large-117.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-117.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/large-118.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-118.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/large-119.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-119.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/large-129.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-129.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>.edges</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

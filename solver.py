@@ -169,7 +169,7 @@ def solve4(G):
         n1 = e[0]
         n2 = e[1]
         G2[n1][n2]['weight'] += sum(path_lengths[n1].values()) + sum(path_lengths[n2].values())
-        print(str(n1) + " and " + str(n2) + " w weight: " + str(G2[n1][n2]['weight']))
+        #print(str(n1) + " and " + str(n2) + " w weight: " + str(G2[n1][n2]['weight']))
 
     T = nx.minimum_spanning_tree(G2)
     T = nx.Graph(G.edge_subgraph(T.edges()))
@@ -300,6 +300,6 @@ if __name__ == '__main__':
             print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
         else:
             print("not better pairwise dist")
-        print(best_T[2]+" new pairwise distance: {}".format(best_T[0]))
+        print(best_T[2]+" new pairwise distance: {}".format(best_T[1]))
 
 

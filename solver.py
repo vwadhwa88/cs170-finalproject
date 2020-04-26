@@ -143,7 +143,7 @@ if __name__ == '__main__':
     G = read_input_file(path)
 
 
-    if G.number_of_nodes() == 23:
+    if G.number_of_nodes() == 24:
         print("multiprocessing brute force")
         all_connected_subgraphs = []
         start = time.time()

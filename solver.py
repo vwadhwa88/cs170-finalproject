@@ -279,7 +279,7 @@ if __name__ == '__main__':
     T = solve2(G)
     T2 = solve3(G)
     T3 = solve4(G)
-    trees = [(T,average_pairwise_distance(T), "MST"), (T2,average_pairwise_distance(T2),"Steiner"), (T3,average_pairwise_distance(3),"SP-MST")]
+    trees = [(T,average_pairwise_distance(T), "MST"), (T2,average_pairwise_distance(T2),"Steiner"), (T3,average_pairwise_distance(T3),"SP-MST")]
     assert is_valid_network(G, T)
     assert is_valid_network(G, T2)
     assert is_valid_network(G, T3)

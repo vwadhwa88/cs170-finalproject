@@ -21,27 +21,20 @@
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-118.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-118.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-124.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-124.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-131.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-131.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-146.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-146.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-151.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-151.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-160.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-160.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-177.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-177.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-186.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-186.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-231.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-231.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-235.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-235.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-297.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-297.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-299.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-299.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-300.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-300.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-302.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-302.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-47.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-47.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-51.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-51.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-55.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-55.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-71.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-71.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-75.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-75.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-78.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-78.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-98.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-98.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputs/smll-12.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputs/test.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-115.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-115.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-121.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-121.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-154.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-154.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-166.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-166.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-182.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-182.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-189.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-189.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-21.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-21.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-251.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-251.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-27.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-27.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-57.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-57.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-66.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-66.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/test.out" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

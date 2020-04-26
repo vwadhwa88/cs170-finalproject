@@ -197,35 +197,34 @@ if __name__ == '__main__':
             else:
                 print("New pairwise distance: {}".format(average_pairwise_distance(T)))
                 print("total time: " + str(end - start))
+        print("MST + cut")
+        T = solve2(G)
+        T2 = solve3(G)
+        assert is_valid_network(G, T)
+        assert is_valid_network(G, T2)
+        if len(T)==1:
+            write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            print("one vertex")
+        elif len(T2)==1:
+            write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            print("one vertex")
         else:
-            print("MST + cut")
-            T = solve2(G)
-            T2 = solve3(G)
-            assert is_valid_network(G, T)
-            assert is_valid_network(G, T2)
-            if len(T)==1:
-                write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                print("one vertex")
-            elif len(T2)==1:
-                write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                print("one vertex")
-            else:
-                if average_pairwise_distance(T) <= average_pairwise_distance(T2):
-                    current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
-                    if average_pairwise_distance(T) < average_pairwise_distance(current_T):
-                        write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                        print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-                    else:
-                        print("not better pairwise dist")
-                    print("New MST pairwise distance: {}".format(average_pairwise_distance(T)))
+            if average_pairwise_distance(T) <= average_pairwise_distance(T2):
+                current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
+                if average_pairwise_distance(T) < average_pairwise_distance(current_T):
+                    write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+                    print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
                 else:
-                    current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
-                    if average_pairwise_distance(T2) < average_pairwise_distance(current_T):
-                        write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                        print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-                    else:
-                        print("not better pairwise dist")
-                    print("New Steiner pairwise distance: {}".format(average_pairwise_distance(T2)))
+                    print("not better pairwise dist")
+                print("New MST pairwise distance: {}".format(average_pairwise_distance(T)))
+            else:
+                current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
+                if average_pairwise_distance(T2) < average_pairwise_distance(current_T):
+                    write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+                    print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
+                else:
+                    print("not better pairwise dist")
+                print("New Steiner pairwise distance: {}".format(average_pairwise_distance(T2)))
 
 
 

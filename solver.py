@@ -32,6 +32,8 @@ def solve(G):
                 all_connected_subgraphs.append((SG, average_pairwise_distance(SG)))
                 #print("adding subgraph")
                 #print(SG.nodes)
+        if len(all_connected_subgraphs) > 0:
+            break
 
     print("finding best subgraph")
     minSG = min(all_connected_subgraphs,key=operator.itemgetter(1))[0]
@@ -52,6 +54,7 @@ def solveBRUTE(G):
                 all_connected_subgraphs.append((SG, average_pairwise_distance(SG)))
                 # print("adding subgraph")
                 # print(SG.nodes)
+
 
     print("finding best subgraph")
     minSG = min(all_connected_subgraphs, key=operator.itemgetter(1))[0]

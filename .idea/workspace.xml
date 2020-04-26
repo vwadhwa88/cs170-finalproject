@@ -21,21 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/smll-12.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs/test.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-115.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-115.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-121.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-121.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-154.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-154.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-166.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-166.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-182.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-182.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-189.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-189.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-21.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-21.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-251.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-251.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-27.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-27.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-57.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-57.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-66.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-66.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/test.out" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/submission.json" beforeDir="false" afterPath="$PROJECT_DIR$/submission.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,9 +86,10 @@
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="686" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1028@0.23.1792.1028" timestamp="1587573480228" />
-    <state x="953" y="356" key="search.everywhere.popup" timestamp="1587766609706">
-      <screen x="0" y="23" width="1792" height="1028" />
+    <state x="953" y="357" width="670" height="676" key="search.everywhere.popup" timestamp="1587880764530">
+      <screen x="0" y="23" width="1792" height="1030" />
     </state>
     <state x="953" y="356" key="search.everywhere.popup/0.23.1792.1028@0.23.1792.1028" timestamp="1587766609706" />
+    <state x="953" y="357" width="670" height="676" key="search.everywhere.popup/0.23.1792.1030@0.23.1792.1030" timestamp="1587880764530" />
   </component>
 </project>

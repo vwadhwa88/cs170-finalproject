@@ -130,17 +130,17 @@ def process(G, nb_nodes):
 def solve2(G):
     T = nx.minimum_spanning_tree(G)
     remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
-    print(remove)
+    # print(remove)
     T.remove_nodes_from(remove)
     remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
-    print(remove)
+    # print(remove)
     q = PriorityQueue()
     for i in remove:
         n2 = list(T.edges(i))[0][1]
         q.put((-T[i][n2]['weight'],i))
     while q.qsize()>0:
         nodeToRemove = q.get()[1]
-        print("removing node: " + str(nodeToRemove))
+        # print("removing node: " + str(nodeToRemove))
         G2 = copy.deepcopy(G)
         G2.remove_node(nodeToRemove)
         nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
@@ -150,13 +150,13 @@ def solve2(G):
                 canRemove = False
                 break
         if canRemove:
-            print("can remove node!")
+            # print("can remove node!")
             if len(T.nodes)==1:
                 break
             T.remove_node(nodeToRemove)
             removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
             setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
-            print("new 1-edge nodes: " + str(setDiff))
+            # print("new 1-edge nodes: " + str(setDiff))
             for i in setDiff:
                 node2 = list(T.edges(i))[0][1]
                 q.put((-T[i][node2]['weight'],i))
@@ -170,11 +170,14 @@ def solve3(G):
         if nx.algorithms.tree.recognition.is_tree(SG) and nx.algorithms.dominating.is_dominating_set(G,SG.nodes):
             if SG.number_of_nodes()==1:
                 return SG
-
+    path_lengths = nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G)
     for u in range(G.number_of_nodes()):
-        adj_edges = [G.edges[u, v]['weight'] for v in list(G[u])]
+        #adj_edges = [G.edges[u, v]['weight'] for v in list(G[u])]
         #G.nodes[u]['weight'] = sum(adj_edges)/len(adj_edges)
-        G.nodes[u]['weight'] = min(adj_edges)
+        print(sum((dict(path_lengths)[u]).values()))
+        sum_paths = sum((dict(path_lengths)[u]).values())
+        G.nodes[u]['weight'] = sum_paths
+        #G.nodes[u]['weight'] = min(adj_edges)
     # Obtain dominating set that minimizes node weights
     ds = nx.algorithms.approximation.dominating_set.min_weighted_dominating_set(G, 'weight')
     # Connect the set with steiner tree approx
@@ -191,70 +194,70 @@ if __name__ == '__main__':
     print(path)
     G = read_input_file(path)
 
-    if G.number_of_edges() > 0:
-        print(G.number_of_edges())
-        print("edge brute force")
-        start = time.time()
-        T = solveBRUTEMP(G)
-        #T = solveBRUTE(G)
-        end = time.time()
-        assert is_valid_network(G, T)
-        current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)
-        if len(T) == 1 or average_pairwise_distance(T) < average_pairwise_distance(current_T):
-            write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-            print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-        else:
-            print("not better pairwise dist")
-        print("New pairwise distance: {}".format(average_pairwise_distance(T)))
-        print("total time: " + str(end - start))
+    # if G.number_of_edges() > 0:
+    #     print(G.number_of_edges())
+    #     print("edge brute force")
+    #     start = time.time()
+    #     T = solveBRUTEMP(G)
+    #     #T = solveBRUTE(G)
+    #     end = time.time()
+    #     assert is_valid_network(G, T)
+    #     current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)
+    #     if len(T) == 1 or average_pairwise_distance(T) < average_pairwise_distance(current_T):
+    #         write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+    #         print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
+    #     else:
+    #         print("not better pairwise dist")
+    #     print("New pairwise distance: {}".format(average_pairwise_distance(T)))
+    #     print("total time: " + str(end - start))
+    # else:
+    #     if G.number_of_nodes() < 25:
+    #         print("multiprocessing brute force")
+    #         all_connected_subgraphs = []
+    #         start = time.time()
+    #         T = solve(G)
+    #         #T = solveMP(G)
+    #         end = time.time()
+    #         assert is_valid_network(G, T)
+    #         current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)
+    #         if len(T)==1 or average_pairwise_distance(T) < average_pairwise_distance(current_T):
+    #             write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+    #             print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
+    #         else:
+    #             print("not better pairwise dist")
+    #         if len(T)==1:
+    #             print("one vertex")
+    #         else:
+    #             print("New pairwise distance: {}".format(average_pairwise_distance(T)))
+    #             print("total time: " + str(end - start))
+    #     print("MST + cut")
+    T = solve2(G)
+    T2 = solve3(G)
+    assert is_valid_network(G, T)
+    assert is_valid_network(G, T2)
+    if len(T)==1:
+        write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+        print("one vertex")
+    elif len(T2)==1:
+        write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+        print("one vertex")
     else:
-        if G.number_of_nodes() < 25:
-            print("multiprocessing brute force")
-            all_connected_subgraphs = []
-            start = time.time()
-            T = solve(G)
-            #T = solveMP(G)
-            end = time.time()
-            assert is_valid_network(G, T)
-            current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)
-            if len(T)==1 or average_pairwise_distance(T) < average_pairwise_distance(current_T):
+        if average_pairwise_distance(T) <= average_pairwise_distance(T2):
+            current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
+            if average_pairwise_distance(T) < average_pairwise_distance(current_T):
                 write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
                 print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
             else:
                 print("not better pairwise dist")
-            if len(T)==1:
-                print("one vertex")
-            else:
-                print("New pairwise distance: {}".format(average_pairwise_distance(T)))
-                print("total time: " + str(end - start))
-        print("MST + cut")
-        T = solve2(G)
-        T2 = solve3(G)
-        assert is_valid_network(G, T)
-        assert is_valid_network(G, T2)
-        if len(T)==1:
-            write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-            print("one vertex")
-        elif len(T2)==1:
-            write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-            print("one vertex")
+            print("New MST pairwise distance: {}".format(average_pairwise_distance(T)))
         else:
-            if average_pairwise_distance(T) <= average_pairwise_distance(T2):
-                current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
-                if average_pairwise_distance(T) < average_pairwise_distance(current_T):
-                    write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                    print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-                else:
-                    print("not better pairwise dist")
-                print("New MST pairwise distance: {}".format(average_pairwise_distance(T)))
+            current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
+            if average_pairwise_distance(T2) < average_pairwise_distance(current_T):
+                write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+                print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
             else:
-                current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
-                if average_pairwise_distance(T2) < average_pairwise_distance(current_T):
-                    write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                    print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-                else:
-                    print("not better pairwise dist")
-                print("New Steiner pairwise distance: {}".format(average_pairwise_distance(T2)))
+                print("not better pairwise dist")
+            print("New Steiner pairwise distance: {}".format(average_pairwise_distance(T2)))
 
 
 

@@ -11,6 +11,7 @@ from networkx.algorithms import approximation
 import time
 import multiprocessing
 from multiprocessing import Pool, cpu_count
+import random
 
 def solve(G):
     """
@@ -168,7 +169,7 @@ def solve4(G):
     for e in G2.edges():
         n1 = e[0]
         n2 = e[1]
-        G2[n1][n2]['weight'] += sum(path_lengths[n1].values()) + sum(path_lengths[n2].values())
+        G2[n1][n2]['weight'] += max(sum(path_lengths[n1].values()), sum(path_lengths[n2].values()))
         #print(str(n1) + " and " + str(n2) + " w weight: " + str(G2[n1][n2]['weight']))
 
     T = nx.minimum_spanning_tree(G2)
@@ -205,6 +206,139 @@ def solve4(G):
                 node2 = list(T.edges(i))[0][1]
                 q.put((-T[i][node2]['weight'], i))
     return T
+
+def solve5(G):
+    G2 = copy.deepcopy(G)
+    path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
+    for e in G2.edges():
+        n1 = e[0]
+        n2 = e[1]
+        G2[n1][n2]['weight'] += sum(path_lengths[n1].values())+ sum(path_lengths[n2].values())
+        #print(str(n1) + " and " + str(n2) + " w weight: " + str(G2[n1][n2]['weight']))
+
+    T = nx.minimum_spanning_tree(G2)
+    T = nx.Graph(G.edge_subgraph(T.edges()))
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    T.remove_nodes_from(remove)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'], i))
+    while q.qsize() > 0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes) == 1:
+                break
+            T.remove_node(nodeToRemove)
+            removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+            setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+            # print("new 1-edge nodes: " + str(setDiff))
+            for i in setDiff:
+                node2 = list(T.edges(i))[0][1]
+                q.put((-T[i][node2]['weight'], i))
+    return T
+
+def solve6(G):
+    G2 = copy.deepcopy(G)
+    path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
+    for e in G2.edges():
+        n1 = e[0]
+        n2 = e[1]
+        G2[n1][n2]['weight'] += min(sum(path_lengths[n1].values()), sum(path_lengths[n2].values()))
+        #print(str(n1) + " and " + str(n2) + " w weight: " + str(G2[n1][n2]['weight']))
+
+    T = nx.minimum_spanning_tree(G2)
+    T = nx.Graph(G.edge_subgraph(T.edges()))
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    T.remove_nodes_from(remove)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'], i))
+    while q.qsize() > 0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes) == 1:
+                break
+            T.remove_node(nodeToRemove)
+            removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+            setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+            # print("new 1-edge nodes: " + str(setDiff))
+            for i in setDiff:
+                node2 = list(T.edges(i))[0][1]
+                q.put((-T[i][node2]['weight'], i))
+    return T
+
+def solve7(G):
+    G2 = copy.deepcopy(G)
+    path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
+    for e in G2.edges():
+        n1 = e[0]
+        n2 = e[1]
+        G2[n1][n2]['weight'] = random.randrange(1, 101, 1)
+        #print(str(n1) + " and " + str(n2) + " w weight: " + str(G2[n1][n2]['weight']))
+
+    T = nx.minimum_spanning_tree(G2)
+    T = nx.Graph(G.edge_subgraph(T.edges()))
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    T.remove_nodes_from(remove)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'], i))
+    while q.qsize() > 0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes) == 1:
+                break
+            T.remove_node(nodeToRemove)
+            removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+            setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+            # print("new 1-edge nodes: " + str(setDiff))
+            for i in setDiff:
+                node2 = list(T.edges(i))[0][1]
+                q.put((-T[i][node2]['weight'], i))
+    return T
+
 
 def solve3(G):
     # Set all node weights to be the min weight of adjacent edges
@@ -279,20 +413,21 @@ if __name__ == '__main__':
     T = solve2(G)
     T2 = solve3(G)
     T3 = solve4(G)
-    trees = [(T,average_pairwise_distance(T), "MST"), (T2,average_pairwise_distance(T2),"Steiner"), (T3,average_pairwise_distance(T3),"SP-MST")]
+    T4 = solve5(G)
+    T5 = solve6(G)
+    T6 = solve7(G)
     assert is_valid_network(G, T)
     assert is_valid_network(G, T2)
     assert is_valid_network(G, T3)
+    assert is_valid_network(G, T4)
+    assert is_valid_network(G, T5)
     if len(T)==1:
         write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
         print("one vertex")
-    elif len(T2)==1:
-        write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-        print("one vertex")
-    elif len(T3)==1:
-        write_output_file(T3, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-        print("one vertex")
     else:
+        trees = [(T, average_pairwise_distance(T), "MST"), (T2, average_pairwise_distance(T2), "Steiner"),
+                 (T3, average_pairwise_distance(T3), "Max-SP-MST"), (T4, average_pairwise_distance(T4), "Sum-SP-MST"),
+                 (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random")]
         best_T = min(trees,key=operator.itemgetter(1))
         current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
         if best_T[1] < average_pairwise_distance(current_T):

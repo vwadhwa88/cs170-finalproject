@@ -60,6 +60,34 @@ def solveBRUTE(G):
     minSG = min(all_connected_subgraphs, key=operator.itemgetter(1))[0]
     return minSG
 
+def solveBRUTEMP(G):
+    for SG in (G.subgraph(selected_nodes) for selected_nodes in itertools.combinations(G,1)):
+        if nx.algorithms.tree.recognition.is_tree(SG) and nx.algorithms.dominating.is_dominating_set(G,SG.nodes):
+            if SG.number_of_nodes()==1:
+                return SG
+
+    # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
+    num_cores = multiprocessing.cpu_count()//2-1
+    with Pool(num_cores) as p:
+        result = p.starmap(process2, zip(itertools.repeat(G, G.number_of_edges()), range(1, G.number_of_edges() + 1)))
+    s = time.time()
+    SG_lst = []
+    for i in result:
+        SG_lst += i
+    minSG = min(SG_lst,key=operator.itemgetter(1))[0]
+    print("finding best sg time: " + str(time.time()-s))
+    return minSG
+
+def process2(G, nb_nodes):
+    connected_subgraphs = []
+    for SG in (G.edge_subgraph(selected_nodes) for selected_nodes in itertools.combinations(G.edges(), nb_nodes)):
+        if nx.algorithms.tree.recognition.is_tree(SG) and nx.algorithms.dominating.is_dominating_set(G,SG.nodes):
+            connected_subgraphs.append((SG, average_pairwise_distance(SG)))
+            print("adding subgraph")
+            print(SG.nodes)
+    return connected_subgraphs
+
+
 def solveMP(G):
     """
     Args:
@@ -76,7 +104,7 @@ def solveMP(G):
                 return SG
 
     # here we ask for all connected subgraphs that have at least 2 nodes AND have less nodes than the input graph
-    num_cores = multiprocessing.cpu_count()//2
+    num_cores = multiprocessing.cpu_count()//2-1
     with Pool(num_cores) as p:
         result = p.starmap(process, zip(itertools.repeat(G, G.number_of_nodes()), range(2, G.number_of_nodes() + 1)))
     s = time.time()
@@ -163,11 +191,12 @@ if __name__ == '__main__':
     print(path)
     G = read_input_file(path)
 
-    if G.number_of_edges() < 25:
+    if G.number_of_edges() > 0:
         print(G.number_of_edges())
         print("edge brute force")
         start = time.time()
-        T = solveBRUTE(G)
+        T = solveBRUTEMP(G)
+        #T = solveBRUTE(G)
         end = time.time()
         assert is_valid_network(G, T)
         current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)
@@ -184,6 +213,7 @@ if __name__ == '__main__':
             all_connected_subgraphs = []
             start = time.time()
             T = solve(G)
+            #T = solveMP(G)
             end = time.time()
             assert is_valid_network(G, T)
             current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)

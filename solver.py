@@ -295,13 +295,12 @@ def solve6(G):
                 q.put((-T[i][node2]['weight'], i))
     return T
 
-def solve7(G):
+def solve7(G,top):
     G2 = copy.deepcopy(G)
-    path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
     for e in G2.edges():
         n1 = e[0]
         n2 = e[1]
-        G2[n1][n2]['weight'] = random.randrange(1, 101, 1)
+        G2[n1][n2]['weight'] += random.randrange(1, int(top), 1)
         #print(str(n1) + " and " + str(n2) + " w weight: " + str(G2[n1][n2]['weight']))
 
     T = nx.minimum_spanning_tree(G2)
@@ -367,8 +366,9 @@ def solve3(G):
 # Usage: python3 solver.py test.in
 
 if __name__ == '__main__':
-    assert len(sys.argv) == 2
+    assert len(sys.argv) == 3
     path = sys.argv[1]
+    rang = sys.argv[2]
     print(path)
     G = read_input_file(path)
 
@@ -410,24 +410,26 @@ if __name__ == '__main__':
     #             print("total time: " + str(end - start))
     #     print("MST + cut")
 
-    T = solve2(G)
-    T2 = solve3(G)
-    T3 = solve4(G)
-    T4 = solve5(G)
-    T5 = solve6(G)
-    T6 = solve7(G)
-    assert is_valid_network(G, T)
-    assert is_valid_network(G, T2)
-    assert is_valid_network(G, T3)
-    assert is_valid_network(G, T4)
-    assert is_valid_network(G, T5)
-    if len(T)==1:
-        write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+    # T = solve2(G)
+    # T2 = solve3(G)
+    # T3 = solve4(G)
+    # T4 = solve5(G)
+    # T5 = solve6(G)
+    T6 = solve7(G,rang)
+    # assert is_valid_network(G, T)
+    # assert is_valid_network(G, T2)
+    # assert is_valid_network(G, T3)
+    # assert is_valid_network(G, T4)
+    # assert is_valid_network(G, T5)
+    assert is_valid_network(G, T6)
+    if len(T6)==1:
+        write_output_file(T6, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
         print("one vertex")
     else:
-        trees = [(T, average_pairwise_distance(T), "MST"), (T2, average_pairwise_distance(T2), "Steiner"),
-                 (T3, average_pairwise_distance(T3), "Max-SP-MST"), (T4, average_pairwise_distance(T4), "Sum-SP-MST"),
-                 (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random")]
+        # trees = [(T, average_pairwise_distance(T), "MST"), (T2, average_pairwise_distance(T2), "Steiner"),
+        #          (T3, average_pairwise_distance(T3), "Max-SP-MST"), (T4, average_pairwise_distance(T4), "Sum-SP-MST"),
+        #          (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random")]
+        trees = [(T6, average_pairwise_distance(T6),"Random")]
         best_T = min(trees,key=operator.itemgetter(1))
         current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
         if best_T[1] < average_pairwise_distance(current_T):

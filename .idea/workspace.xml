@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/outputs/small-189.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-189.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-197.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-197.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-2.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-2.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-245.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-245.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-25.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-25.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-252.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-252.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-259.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-259.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-241.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-241.out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

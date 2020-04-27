@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-63.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-63.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-82.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-82.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-134.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-134.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/submission.json" beforeDir="false" afterPath="$PROJECT_DIR$/submission.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

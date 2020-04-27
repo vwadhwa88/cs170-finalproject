@@ -658,25 +658,25 @@ if __name__ == '__main__':
         # T3 = solve4(G)
         # T4 = solve5(G)
         # T5 = solve6(G)
-        # T6 = solve7(G,rang)
-        T7 = solveMSTSpecial(G)
-        T8 = solveMSTSpecial2(G)
-        T9 = solveMSTSpecial3(G)
-        T10 = solveMSTSpecial4(G)
-        # T11 = solveMSTSpecial5(G,rang)
+        T6 = solve7(G,rang)
+        # T7 = solveMSTSpecial(G)
+        # T8 = solveMSTSpecial2(G)
+        # T9 = solveMSTSpecial3(G)
+        # T10 = solveMSTSpecial4(G)
+        T11 = solveMSTSpecial5(G,rang)
 
         # assert is_valid_network(G, T)
         # assert is_valid_network(G, T2)
         # assert is_valid_network(G, T3)
         # assert is_valid_network(G, T4)
         # assert is_valid_network(G, T5)
-        # assert is_valid_network(G, T6)
-        assert  is_valid_network(G,T7)
-        assert is_valid_network(G, T8)
-        assert is_valid_network(G, T9)
-        assert is_valid_network(G, T10)
-        # assert is_valid_network(G, T11)
-        if len(T7)==1:
+        assert is_valid_network(G, T6)
+        # assert  is_valid_network(G,T7)
+        # assert is_valid_network(G, T8)
+        # assert is_valid_network(G, T9)
+        # assert is_valid_network(G, T10)
+        assert is_valid_network(G, T11)
+        if len(T11)==1:
             #write_output_file(T6, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
             print("one vertex")
         else:
@@ -686,8 +686,7 @@ if __name__ == '__main__':
             #          (T7, average_pairwise_distance(T7),"Special-MST"),(T8, average_pairwise_distance(T8),"Max-Special-MST"),
             #          (T9, average_pairwise_distance(T9),"Sum-Special-MST"),(T10, average_pairwise_distance(T10),"Min-Special-MST"),
             #          (T11, average_pairwise_distance(T11),"Random-Special")]
-            trees = [(T7, average_pairwise_distance(T7),"Special-MST"),(T8, average_pairwise_distance(T8),"Max-Special-MST"),
-                     (T9, average_pairwise_distance(T9),"Sum-Special-MST"),(T10, average_pairwise_distance(T10),"Min-Special-MST")]
+            trees = [(T11, average_pairwise_distance(T11),"Random-Special"),(T6, average_pairwise_distance(T6),"Random")]
             best_T = min(trees,key=operator.itemgetter(1))
             if best_T[1] < average_pairwise_distance(current_T):
                 write_output_file(best_T[0], 'outputs/' + path.split('.')[0].split('/')[1] + '.out')

@@ -434,7 +434,6 @@ if __name__ == '__main__':
             #          (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random")]
             trees = [(T6, average_pairwise_distance(T6),"Random")]
             best_T = min(trees,key=operator.itemgetter(1))
-            current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
             if best_T[1] < average_pairwise_distance(current_T):
                 write_output_file(best_T[0], 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
                 print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))

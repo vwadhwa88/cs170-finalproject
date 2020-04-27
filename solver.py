@@ -163,6 +163,99 @@ def solve2(G):
                 q.put((-T[i][node2]['weight'],i))
     return T
 
+def solveMSTSpecial(G):
+    T = nx.minimum_spanning_tree(G)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    for i in remove:
+        T_temporary = copy.deepcopy(T)
+        T_temporary.remove_node(i)
+        if average_pairwise_distance(T_temporary) <= average_pairwise_distance(T):
+            T.remove_node(i)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'],i))
+    while q.qsize()>0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes)==1:
+                break
+            T_temp = copy.deepcopy(T)
+            T_temp.remove_node(nodeToRemove)
+            if average_pairwise_distance(T_temp) <= average_pairwise_distance(T):
+                T.remove_node(nodeToRemove)
+                removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+                setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+                # print("new 1-edge nodes: " + str(setDiff))
+                for i in setDiff:
+                    node2 = list(T.edges(i))[0][1]
+                    q.put((-T[i][node2]['weight'],i))
+    return T
+
+def solveMSTSpecial2(G):
+    G2 = copy.deepcopy(G)
+    path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
+    for e in G2.edges():
+        n1 = e[0]
+        n2 = e[1]
+        G2[n1][n2]['weight'] += max(sum(path_lengths[n1].values()), sum(path_lengths[n2].values()))
+    T = nx.minimum_spanning_tree(G2)
+    T = nx.Graph(G.edge_subgraph(T.edges()))
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    for i in remove:
+        T_temporary = copy.deepcopy(T)
+        T_temporary.remove_node(i)
+        if average_pairwise_distance(T_temporary) <= average_pairwise_distance(T):
+            T.remove_node(i)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'],i))
+    while q.qsize()>0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes)==1:
+                break
+            T_temp = copy.deepcopy(T)
+            T_temp.remove_node(nodeToRemove)
+            if average_pairwise_distance(T_temp) <= average_pairwise_distance(T):
+                T.remove_node(nodeToRemove)
+                removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+                setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+                # print("new 1-edge nodes: " + str(setDiff))
+                for i in setDiff:
+                    node2 = list(T.edges(i))[0][1]
+                    q.put((-T[i][node2]['weight'],i))
+    return T
+
+
+
 def solve4(G):
     G2 = copy.deepcopy(G)
     path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
@@ -205,6 +298,56 @@ def solve4(G):
             for i in setDiff:
                 node2 = list(T.edges(i))[0][1]
                 q.put((-T[i][node2]['weight'], i))
+    return T
+
+
+def solveMSTSpecial3(G):
+    G2 = copy.deepcopy(G)
+    path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
+    for e in G2.edges():
+        n1 = e[0]
+        n2 = e[1]
+        G2[n1][n2]['weight'] += sum(path_lengths[n1].values())+ sum(path_lengths[n2].values())
+    T = nx.minimum_spanning_tree(G2)
+    T = nx.Graph(G.edge_subgraph(T.edges()))
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    for i in remove:
+        T_temporary = copy.deepcopy(T)
+        T_temporary.remove_node(i)
+        if average_pairwise_distance(T_temporary) <= average_pairwise_distance(T):
+            T.remove_node(i)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'],i))
+    while q.qsize()>0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes)==1:
+                break
+            T_temp = copy.deepcopy(T)
+            T_temp.remove_node(nodeToRemove)
+            if average_pairwise_distance(T_temp) <= average_pairwise_distance(T):
+                T.remove_node(nodeToRemove)
+                removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+                setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+                # print("new 1-edge nodes: " + str(setDiff))
+                for i in setDiff:
+                    node2 = list(T.edges(i))[0][1]
+                    q.put((-T[i][node2]['weight'],i))
     return T
 
 def solve5(G):
@@ -251,6 +394,55 @@ def solve5(G):
                 q.put((-T[i][node2]['weight'], i))
     return T
 
+def solveMSTSpecial4(G):
+    G2 = copy.deepcopy(G)
+    path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
+    for e in G2.edges():
+        n1 = e[0]
+        n2 = e[1]
+        G2[n1][n2]['weight'] += min(sum(path_lengths[n1].values()), sum(path_lengths[n2].values()))
+    T = nx.minimum_spanning_tree(G2)
+    T = nx.Graph(G.edge_subgraph(T.edges()))
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    for i in remove:
+        T_temporary = copy.deepcopy(T)
+        T_temporary.remove_node(i)
+        if average_pairwise_distance(T_temporary) <= average_pairwise_distance(T):
+            T.remove_node(i)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'],i))
+    while q.qsize()>0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes)==1:
+                break
+            T_temp = copy.deepcopy(T)
+            T_temp.remove_node(nodeToRemove)
+            if average_pairwise_distance(T_temp) <= average_pairwise_distance(T):
+                T.remove_node(nodeToRemove)
+                removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+                setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+                # print("new 1-edge nodes: " + str(setDiff))
+                for i in setDiff:
+                    node2 = list(T.edges(i))[0][1]
+                    q.put((-T[i][node2]['weight'],i))
+    return T
+
 def solve6(G):
     G2 = copy.deepcopy(G)
     path_lengths = dict(nx.algorithms.shortest_paths.unweighted.all_pairs_shortest_path_length(G2))
@@ -293,6 +485,54 @@ def solve6(G):
             for i in setDiff:
                 node2 = list(T.edges(i))[0][1]
                 q.put((-T[i][node2]['weight'], i))
+    return T
+
+def solveMSTSpecial5(G, top):
+    G2 = copy.deepcopy(G)
+    for e in G2.edges():
+        n1 = e[0]
+        n2 = e[1]
+        G2[n1][n2]['weight'] += random.randrange(1, int(top), 1)
+    T = nx.minimum_spanning_tree(G2)
+    T = nx.Graph(G.edge_subgraph(T.edges()))
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    for i in remove:
+        T_temporary = copy.deepcopy(T)
+        T_temporary.remove_node(i)
+        if average_pairwise_distance(T_temporary) <= average_pairwise_distance(T):
+            T.remove_node(i)
+    remove = [node for node, degree in dict(T.degree()).items() if degree == 1]
+    # print(remove)
+    q = PriorityQueue()
+    for i in remove:
+        n2 = list(T.edges(i))[0][1]
+        q.put((-T[i][n2]['weight'],i))
+    while q.qsize()>0:
+        nodeToRemove = q.get()[1]
+        # print("removing node: " + str(nodeToRemove))
+        G2 = copy.deepcopy(G)
+        G2.remove_node(nodeToRemove)
+        nodesInGraphNotTree = [node for node in G2.nodes if not node in T.nodes]
+        canRemove = True
+        for n in nodesInGraphNotTree:
+            if len(set(G2.neighbors(n)) & set(T.nodes)) == 0:
+                canRemove = False
+                break
+        if canRemove:
+            # print("can remove node!")
+            if len(T.nodes)==1:
+                break
+            T_temp = copy.deepcopy(T)
+            T_temp.remove_node(nodeToRemove)
+            if average_pairwise_distance(T_temp) <= average_pairwise_distance(T):
+                T.remove_node(nodeToRemove)
+                removeMore = [node for node, degree in dict(T.degree()).items() if degree == 1]
+                setDiff = list(set(removeMore).difference(set([x[1] for x in q.queue])))
+                # print("new 1-edge nodes: " + str(setDiff))
+                for i in setDiff:
+                    node2 = list(T.edges(i))[0][1]
+                    q.put((-T[i][node2]['weight'],i))
     return T
 
 def solve7(G,top):
@@ -418,27 +658,42 @@ if __name__ == '__main__':
         # T3 = solve4(G)
         # T4 = solve5(G)
         # T5 = solve6(G)
-        T6 = solve7(G,rang)
+        # T6 = solve7(G,rang)
+        T7 = solveMSTSpecial(G)
+        T8 = solveMSTSpecial2(G)
+        T9 = solveMSTSpecial3(G)
+        T10 = solveMSTSpecial4(G)
+        # T11 = solveMSTSpecial5(G,rang)
+
         # assert is_valid_network(G, T)
         # assert is_valid_network(G, T2)
         # assert is_valid_network(G, T3)
         # assert is_valid_network(G, T4)
         # assert is_valid_network(G, T5)
-        assert is_valid_network(G, T6)
-        if len(T6)==1:
+        # assert is_valid_network(G, T6)
+        assert  is_valid_network(G,T7)
+        assert is_valid_network(G, T8)
+        assert is_valid_network(G, T9)
+        assert is_valid_network(G, T10)
+        # assert is_valid_network(G, T11)
+        if len(T7)==1:
             #write_output_file(T6, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
             print("one vertex")
         else:
             # trees = [(T, average_pairwise_distance(T), "MST"), (T2, average_pairwise_distance(T2), "Steiner"),
             #          (T3, average_pairwise_distance(T3), "Max-SP-MST"), (T4, average_pairwise_distance(T4), "Sum-SP-MST"),
-            #          (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random")]
-            trees = [(T6, average_pairwise_distance(T6),"Random")]
+            #          (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random"),
+            #          (T7, average_pairwise_distance(T7),"Special-MST"),(T8, average_pairwise_distance(T8),"Max-Special-MST"),
+            #          (T9, average_pairwise_distance(T9),"Sum-Special-MST"),(T10, average_pairwise_distance(T10),"Min-Special-MST"),
+            #          (T11, average_pairwise_distance(T11),"Random-Special")]
+            trees = [(T7, average_pairwise_distance(T7),"Special-MST"),(T8, average_pairwise_distance(T8),"Max-Special-MST"),
+                     (T9, average_pairwise_distance(T9),"Sum-Special-MST"),(T10, average_pairwise_distance(T10),"Min-Special-MST")]
             best_T = min(trees,key=operator.itemgetter(1))
             if best_T[1] < average_pairwise_distance(current_T):
                 write_output_file(best_T[0], 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
                 print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
             else:
-                print("not better pairwise dist")
+                print("not better pairwise dist: " + str(average_pairwise_distance(current_T)))
             print(best_T[2]+" new pairwise distance: {}".format(best_T[1]))
 
 

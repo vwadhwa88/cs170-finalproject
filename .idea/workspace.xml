@@ -20,9 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/outputs/large-270.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-270.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/large-274.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/large-274.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/submission.json" beforeDir="false" afterPath="$PROJECT_DIR$/submission.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-162.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-162.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-182.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-182.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-184.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-184.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-185.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-185.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-241.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-241.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/medium-288.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-288.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs/small-8.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-8.out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

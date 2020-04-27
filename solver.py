@@ -426,7 +426,7 @@ if __name__ == '__main__':
         assert is_valid_network(G, T5)
         assert is_valid_network(G, T6)
         if len(T6)==1:
-            write_output_file(T6, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            #write_output_file(T6, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
             print("one vertex")
         else:
             trees = [(T, average_pairwise_distance(T), "MST"), (T2, average_pairwise_distance(T2), "Steiner"),

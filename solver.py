@@ -372,6 +372,9 @@ if __name__ == '__main__':
     print(path)
     G = read_input_file(path)
 
+    current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out', G)
+    if current_T.number_of_nodes()!=0:
+
     # if G.number_of_edges() > 0:
     #     print(G.number_of_edges())
     #     print("edge brute force")
@@ -410,33 +413,33 @@ if __name__ == '__main__':
     #             print("total time: " + str(end - start))
     #     print("MST + cut")
 
-    # T = solve2(G)
-    # T2 = solve3(G)
-    # T3 = solve4(G)
-    # T4 = solve5(G)
-    # T5 = solve6(G)
-    T6 = solve7(G,rang)
-    # assert is_valid_network(G, T)
-    # assert is_valid_network(G, T2)
-    # assert is_valid_network(G, T3)
-    # assert is_valid_network(G, T4)
-    # assert is_valid_network(G, T5)
-    assert is_valid_network(G, T6)
-    if len(T6)==1:
-        write_output_file(T6, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-        print("one vertex")
-    else:
-        # trees = [(T, average_pairwise_distance(T), "MST"), (T2, average_pairwise_distance(T2), "Steiner"),
-        #          (T3, average_pairwise_distance(T3), "Max-SP-MST"), (T4, average_pairwise_distance(T4), "Sum-SP-MST"),
-        #          (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random")]
-        trees = [(T6, average_pairwise_distance(T6),"Random")]
-        best_T = min(trees,key=operator.itemgetter(1))
-        current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
-        if best_T[1] < average_pairwise_distance(current_T):
-            write_output_file(best_T[0], 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-            print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
+        # T = solve2(G)
+        # T2 = solve3(G)
+        # T3 = solve4(G)
+        # T4 = solve5(G)
+        # T5 = solve6(G)
+        T6 = solve7(G,rang)
+        # assert is_valid_network(G, T)
+        # assert is_valid_network(G, T2)
+        # assert is_valid_network(G, T3)
+        # assert is_valid_network(G, T4)
+        # assert is_valid_network(G, T5)
+        assert is_valid_network(G, T6)
+        if len(T6)==1:
+            write_output_file(T6, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            print("one vertex")
         else:
-            print("not better pairwise dist")
-        print(best_T[2]+" new pairwise distance: {}".format(best_T[1]))
+            # trees = [(T, average_pairwise_distance(T), "MST"), (T2, average_pairwise_distance(T2), "Steiner"),
+            #          (T3, average_pairwise_distance(T3), "Max-SP-MST"), (T4, average_pairwise_distance(T4), "Sum-SP-MST"),
+            #          (T5, average_pairwise_distance(T5), "Min-SP-MST"), (T6, average_pairwise_distance(T6),"Random")]
+            trees = [(T6, average_pairwise_distance(T6),"Random")]
+            best_T = min(trees,key=operator.itemgetter(1))
+            current_T = read_output_file('outputs/' + path.split('.')[0].split('/')[1] + '.out',G)
+            if best_T[1] < average_pairwise_distance(current_T):
+                write_output_file(best_T[0], 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+                print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
+            else:
+                print("not better pairwise dist")
+            print(best_T[2]+" new pairwise distance: {}".format(best_T[1]))
 
 

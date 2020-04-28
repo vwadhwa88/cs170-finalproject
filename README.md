@@ -1,17 +1,7 @@
 # CS 170 Project Spring 2020
 
-Take a look at the project spec before you get started!
+Command to run program: for i in {1..10000}; do for file in inputs/*;do for j in {5,10,20,30,50,100}; do pypy3 solver.py $file $j;done;done;done;
 
-Requirements:
+j refers to the range of random values to add to the edge weights for solve_random_MST_cut_sometimes and solve_random_MST_cut_all
 
-You'll only need to install networkx to work with the starter code. For installation instructions, follow: https://networkx.github.io/documentation/stable/install.html
-
-Files:
-- `parse.py`: functions to read/write inputs and outputs
-- `solver.py`: where you should be writing your code to solve inputs
-- `utils.py`: contains functions to compute cost and validate NetworkX graphs
-
-When writing inputs/outputs:
-- Make sure you use the functions `write_input_file` and `write_output_file` provided
-- Run the functions `read_input_file` and `read_output_file` to validate your files before submitting!
-  - These are the functions run by the autograder to validate submissions
+Note that many of our outputs come from this randomized algorithm, so they may take a long time to replicate. That's why these commands are run 10,000 times.

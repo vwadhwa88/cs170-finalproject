@@ -20,13 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7111bf07-d4cc-4196-b3ea-8a9f7f320302" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/outputs/medium-162.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-162.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/medium-182.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-182.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/medium-184.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-184.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/medium-185.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-185.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/medium-241.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-241.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/medium-288.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/medium-288.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/small-8.out" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/small-8.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get-pip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputs.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/large-150.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/large-160.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepare_submission.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/small-82.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +37,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="50" />
-    <option name="y" value="23" />
-    <option name="width" value="1194" />
-    <option name="height" value="809" />
   </component>
   <component name="ProjectId" id="1asHYtvqMKjCr3pYJkEw6cZjLpB" />
   <component name="ProjectViewState">
@@ -96,10 +92,16 @@
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="686" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1028@0.23.1792.1028" timestamp="1587573480228" />
-    <state x="953" y="357" width="670" height="676" key="search.everywhere.popup" timestamp="1587880764530">
-      <screen x="0" y="23" width="1792" height="1030" />
+    <state x="1082" y="150" width="600" height="808" key="find.popup" timestamp="1588112910126">
+      <screen x="0" y="23" width="1792" height="1034" />
+    </state>
+    <state x="1082" y="150" width="600" height="807" key="find.popup/0.23.1792.1033@0.23.1792.1033" timestamp="1588107977517" />
+    <state x="1082" y="150" width="600" height="808" key="find.popup/0.23.1792.1034@0.23.1792.1034" timestamp="1588112910126" />
+    <state x="953" y="358" width="670" height="679" key="search.everywhere.popup" timestamp="1588111536290">
+      <screen x="0" y="23" width="1792" height="1034" />
     </state>
     <state x="953" y="356" key="search.everywhere.popup/0.23.1792.1028@0.23.1792.1028" timestamp="1587766609706" />
     <state x="953" y="357" width="670" height="676" key="search.everywhere.popup/0.23.1792.1030@0.23.1792.1030" timestamp="1587880764530" />
+    <state x="953" y="358" width="670" height="679" key="search.everywhere.popup/0.23.1792.1034@0.23.1792.1034" timestamp="1588111536290" />
   </component>
 </project>

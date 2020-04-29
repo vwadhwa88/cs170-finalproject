@@ -617,21 +617,21 @@ if __name__ == '__main__':
 
         if current_T.number_of_nodes()>1:
 
-            if G.number_of_edges() < 24:
-                # DON'T USE MP, MUCH SLOWER SINCE DATA HAS TO BE COPIED TO PROCESSORS!!!
-                # T = solve_edge_combinations_brute_force_MP(G)
-                T = solve_edge_combinations_brute_force(G)
-                assert is_valid_network(G, T)
-                if len(T) == 1 or average_pairwise_distance(T) < average_pairwise_distance(current_T):
-                    write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                    print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-                else:
-                    print("not better pairwise dist: " + str(average_pairwise_distance(current_T)))
-                if len(T)==1:
-                    print("MP_edge_brute_force new pairwise distance: 0")
-                else:
-                    print("MP_edge_brute_force new pairwise distance: {}".format(average_pairwise_distance(T)))
-            else:
+            # if G.number_of_edges() < 24:
+            #     # DON'T USE MP, MUCH SLOWER SINCE DATA HAS TO BE COPIED TO PROCESSORS!!!
+            #     # T = solve_edge_combinations_brute_force_MP(G)
+            #     T = solve_edge_combinations_brute_force(G)
+            #     assert is_valid_network(G, T)
+            #     if len(T) == 1 or average_pairwise_distance(T) < average_pairwise_distance(current_T):
+            #         write_output_file(T, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            #         print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
+            #     else:
+            #         print("not better pairwise dist: " + str(average_pairwise_distance(current_T)))
+            #     if len(T)==1:
+            #         print("MP_edge_brute_force new pairwise distance: 0")
+            #     else:
+            #         print("MP_edge_brute_force new pairwise distance: {}".format(average_pairwise_distance(T)))
+            # else:
         #     not using this because it takes too long and isn't an actual brute force (the other approximations work better)
         #     if G.number_of_nodes() < 24:
         #         T = solve_vertex_combinations(G)
@@ -647,48 +647,48 @@ if __name__ == '__main__':
         #             print("MP_vertex_combos new pairwise distance: 0")
         #         else:
         #             print("MP_vertex_combos new pairwise distance: {}".format(average_pairwise_distance(T)))
-                T = solve_steiner(G)
-                T2 = solve_MST_cut_all(G)
-                T3 = solve_max_MST_cut_all(G)
-                T4 = solve_sum_MST_cut_all(G)
-                T5 = solve_min_MST_cut_all(G)
-                T6 = solve_random_MST_cut_all(G,rang)
-                T7 = solve_MST_cut_sometimes(G)
-                T8 = solve_max_MST_cut_sometimes(G)
-                T9 = solve_sum_MST_cut_sometimes(G)
-                T10 = solve_min_MST_cut_sometimes(G)
-                T11 = solve_random_MST_cut_sometimes(G,rang)
+            T = solve_steiner(G)
+            T2 = solve_MST_cut_all(G)
+            T3 = solve_max_MST_cut_all(G)
+            T4 = solve_sum_MST_cut_all(G)
+            T5 = solve_min_MST_cut_all(G)
+            T6 = solve_random_MST_cut_all(G,rang)
+            T7 = solve_MST_cut_sometimes(G)
+            T8 = solve_max_MST_cut_sometimes(G)
+            T9 = solve_sum_MST_cut_sometimes(G)
+            T10 = solve_min_MST_cut_sometimes(G)
+            T11 = solve_random_MST_cut_sometimes(G,rang)
 
-                assert is_valid_network(G, T)
-                assert is_valid_network(G, T2)
-                assert is_valid_network(G, T3)
-                assert is_valid_network(G, T4)
-                assert is_valid_network(G, T5)
-                assert is_valid_network(G, T6)
-                assert  is_valid_network(G,T7)
-                assert is_valid_network(G, T8)
-                assert is_valid_network(G, T9)
-                assert is_valid_network(G, T10)
-                assert is_valid_network(G, T11)
-                if len(T2)==1:
-                    write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+            assert is_valid_network(G, T)
+            assert is_valid_network(G, T2)
+            assert is_valid_network(G, T3)
+            assert is_valid_network(G, T4)
+            assert is_valid_network(G, T5)
+            assert is_valid_network(G, T6)
+            assert  is_valid_network(G,T7)
+            assert is_valid_network(G, T8)
+            assert is_valid_network(G, T9)
+            assert is_valid_network(G, T10)
+            assert is_valid_network(G, T11)
+            if len(T2)==1:
+                write_output_file(T2, 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
+                print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
+                print("MST_cut_all new pairwise distance: 0")
+            else:
+                trees = [(T, average_pairwise_distance(T), "Steiner"), (T2, average_pairwise_distance(T2), "MST_cut_all"),
+                         (T3, average_pairwise_distance(T3), "max_MST_cut_all"), (T4, average_pairwise_distance(T4), "sum_MST_cut_all"),
+                         (T5, average_pairwise_distance(T5), "min_MST_cut_all"), (T6, average_pairwise_distance(T6),"random_MST_cut_all"),
+                         (T7, average_pairwise_distance(T7),"MST_cut_sometimes"),(T8, average_pairwise_distance(T8),"max_MST_cut_sometimes"),
+                         (T9, average_pairwise_distance(T9),"sum_MST_cut_sometimes"),(T10, average_pairwise_distance(T10),"min_MST_cut_sometimes"),
+                         (T11, average_pairwise_distance(T11),"random_MST_cut_sometimes")]
+                #trees = [(T11, average_pairwise_distance(T11),"Random-Special"),(T6, average_pairwise_distance(T6),"Random")]
+                best_T = min(trees,key=operator.itemgetter(1))
+                if best_T[1] < average_pairwise_distance(current_T):
+                    write_output_file(best_T[0], 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
                     print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-                    print("MST_cut_all new pairwise distance: 0")
                 else:
-                    trees = [(T, average_pairwise_distance(T), "Steiner"), (T2, average_pairwise_distance(T2), "MST_cut_all"),
-                             (T3, average_pairwise_distance(T3), "max_MST_cut_all"), (T4, average_pairwise_distance(T4), "sum_MST_cut_all"),
-                             (T5, average_pairwise_distance(T5), "min_MST_cut_all"), (T6, average_pairwise_distance(T6),"random_MST_cut_all"),
-                             (T7, average_pairwise_distance(T7),"MST_cut_sometimes"),(T8, average_pairwise_distance(T8),"max_MST_cut_sometimes"),
-                             (T9, average_pairwise_distance(T9),"sum_MST_cut_sometimes"),(T10, average_pairwise_distance(T10),"min_MST_cut_sometimes"),
-                             (T11, average_pairwise_distance(T11),"random_MST_cut_sometimes")]
-                    #trees = [(T11, average_pairwise_distance(T11),"Random-Special"),(T6, average_pairwise_distance(T6),"Random")]
-                    best_T = min(trees,key=operator.itemgetter(1))
-                    if best_T[1] < average_pairwise_distance(current_T):
-                        write_output_file(best_T[0], 'outputs/' + path.split('.')[0].split('/')[1] + '.out')
-                        print("Old pairwise distance: {}".format(average_pairwise_distance(current_T)))
-                    else:
-                        print("not better pairwise dist: " + str(average_pairwise_distance(current_T)))
-                    print(best_T[2]+" new pairwise distance: {}".format(best_T[1]))
+                    print("not better pairwise dist: " + str(average_pairwise_distance(current_T)))
+                print(best_T[2]+" new pairwise distance: {}".format(best_T[1]))
     except:
         T = solve_MST_cut_all(G)
         assert is_valid_network(G, T)
